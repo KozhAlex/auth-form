@@ -1,7 +1,5 @@
 # auth-form
 
-Add password instead of <password> in /config/default for DB access
-
 ### `npm dev`
 
 Runs the app in the development mode + server
