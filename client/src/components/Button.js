@@ -10,9 +10,11 @@ export const Button = styled.button`
   border: 0;
   height: 40px;
   width: 300px;
+
   &:disabled {
     background-color: #85AAFF;
   }
+
   &:hover {
     cursor: pointer;
   }

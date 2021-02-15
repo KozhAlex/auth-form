@@ -22,7 +22,7 @@ export const useHttp = () => {
                 throw new Error(data.message || 'Что-то пошло не так');
             }
             setLoading(false);
-            return data
+            return data;
         } catch (e) {
             setLoading(false);
             setHttpError(e.message);

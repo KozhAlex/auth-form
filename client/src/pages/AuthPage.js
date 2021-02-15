@@ -1,4 +1,4 @@
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useEffect} from 'react';
 import {useHttp} from '../hooks/http.hook';
 import {useMessage} from '../hooks/message.hook';
 import {AuthContext} from '../context/auth.context';
@@ -50,14 +50,14 @@ export const AuthPage = () => {
         clearHttpError();
     }, [httpError, message, clearHttpError]);
 
-    const registerHandler = async (values) => {
-        try {
-            const data = await request('/api/auth/register', 'POST', {...values.values.values});
-            message(data.message);
-        } catch (e) {
-
-        }
-    };
+    // const registerHandler = async (values) => {
+    //     try {
+    //         const data = await request('/api/auth/register', 'POST', {...values.values.values});
+    //         message(data.message);
+    //     } catch (e) {
+    //
+    //     }
+    // };
 
     const loginHandler = async (values) => {
         try {

@@ -1,10 +1,14 @@
 import React, {useContext, useEffect, useState} from 'react';
 import {AuthContext} from '../context/auth.context';
 import moment from 'moment';
+import {Button} from '../components/Button';
 
 export const NotificationPage = () => {
     const auth = useContext(AuthContext);
-    const {expiresIn} = auth;
+    const {
+        expiresIn,
+        logout
+    } = auth;
     const [expTime, setExpTime] = useState(expiresIn);
 
     useEffect(() => {
@@ -19,12 +23,17 @@ export const NotificationPage = () => {
         }, 1000);
         return () => clearInterval(interval);
     });
+    useEffect(() => {
+        if (expTime && expTime <= 0) {
+            logout();
+        }
+    }, [expTime]);
     return (
         <div>
             <h1>Success Login Page</h1>
             {expTime && <p>{`Время действия токена закончится через: ${moment(expTime)
-                .minute()} минут(ы) и ${moment(expTime)
-                .second()} секунд(ы)`}</p>}
+                .format('mm:ss')}`}</p>}
+            <Button onClick={logout}>Logout</Button>
         </div>
     );
 };

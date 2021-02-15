@@ -8,8 +8,6 @@ export const useFormFields = ({
     const [values, setValues] = useState(initialValues || {});
     const [errors, setErrors] = useState({});
     const [touched, setTouched] = useState({});
-    const [onSubmitting, setOnSubmitting] = useState(false);
-    const [onBlur, setOnBlur] = useState(false);
 
     const formRendered = useRef(true);
 
@@ -18,8 +16,6 @@ export const useFormFields = ({
             setValues(initialValues);
             setErrors({});
             setTouched({});
-            setOnSubmitting(false);
-            setOnBlur(false);
         }
         formRendered.current = false;
     }, [initialValues]);
@@ -30,7 +26,10 @@ export const useFormFields = ({
             name,
             value
         } = target;
-        setErrors({...errors, [name]: null})
+        setErrors({
+            ...errors,
+            [name]: null
+        });
         setValues({
             ...values,
             [name]: value

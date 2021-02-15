@@ -1,5 +1,6 @@
 import {useCallback, useEffect, useState} from 'react';
 import jwt_decode from 'jwt-decode';
+import moment from 'moment';
 
 const storageName = 'userData';
 
@@ -13,8 +14,11 @@ export const useAuth = () => {
         setUserId(id);
 
         const {exp} = jwt_decode(jwtToken);
-        console.log(exp)
-        setExpiresIn(exp);
+        const expTime = moment.unix(exp)
+            .format('x');
+        const now = moment()
+            .format('x');
+        setExpiresIn(moment(expTime - now));
 
         localStorage.setItem(storageName, JSON.stringify({
             userId: id,

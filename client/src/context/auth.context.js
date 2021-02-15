@@ -1,6 +1,7 @@
-import {createContext} from 'react'
+import {createContext} from 'react';
 
-function noop() {}
+function noop() {
+}
 
 export const AuthContext = createContext({
     token: null,
@@ -9,4 +10,4 @@ export const AuthContext = createContext({
     logout: noop,
     isAuthenticated: false,
     expiresIn: null
-})
+});
