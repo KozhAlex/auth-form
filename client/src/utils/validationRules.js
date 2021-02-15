@@ -1,6 +1,6 @@
 export const emailValidation = email => {
     if (email.trim() === '') {
-        return 'Email is required';
+        return 'Необходимо ввести email';
     }
     if (
         /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/.test(email)

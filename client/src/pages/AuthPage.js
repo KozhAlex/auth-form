@@ -83,7 +83,9 @@ export const AuthPage = () => {
                            onChange={handleChange} onBlur={handleBlur} required/>
                     <Error>{touched.password && errors.password}</Error>
                 </Row>
-                <Button type="submit" disabled={loading}>Sign in</Button>
+                <Row>
+                    <Button type="submit" disabled={loading}>Sign in</Button>
+                </Row>
             </form>
         </Card>
     );

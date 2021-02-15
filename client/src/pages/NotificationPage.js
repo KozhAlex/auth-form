@@ -2,16 +2,21 @@ import React, {useContext, useEffect, useState} from 'react';
 import {AuthContext} from '../context/auth.context';
 import moment from 'moment';
 import {Button} from '../components/Button';
+import {Card} from '../components/Card';
+import {CardHeader} from '../components/CardHeader';
+import {Row} from '../components/Row';
+import {Label} from '../components/Label';
+import {Loader} from '../components/Loader';
 
 export const NotificationPage = () => {
-    const auth = useContext(AuthContext);
-    const {
-        expiresIn,
-        logout
-    } = auth;
-    const [expTime, setExpTime] = useState(expiresIn);
+        const auth = useContext(AuthContext);
+        const {
+            expiresIn,
+            logout
+        } = auth;
+        const [expTime, setExpTime] = useState(expiresIn);
 
-    useEffect(() => {
+        useEffect(() => {
         setExpTime(expiresIn);
     }, [expiresIn]);
 
@@ -29,11 +34,22 @@ export const NotificationPage = () => {
         }
     }, [expTime]);
     return (
-        <div>
-            <h1>Success Login Page</h1>
-            {expTime && <p>{`Время действия токена закончится через: ${moment(expTime)
-                .format('mm:ss')}`}</p>}
-            <Button onClick={logout}>Logout</Button>
-        </div>
+        <Card>
+            {expTime ? (
+                <>
+                    <CardHeader>Success Login Page</CardHeader>
+                    <Row align="center">
+                        <Label>{`Время действия токена закончится через: ${moment(expTime)
+                            .format('mm:ss')}`}</Label>
+                    </Row>
+                    <Row>
+                        <Button onClick={logout}>Logout</Button>
+                    </Row>
+                </>) : (
+                <Loader/>
+            )
+            }
+        </Card>
     );
-};
+    }
+;

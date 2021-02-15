@@ -9,7 +9,7 @@ export const Button = styled.button`
   color: #FFF;
   border: 0;
   height: 40px;
-  width: 300px;
+  min-width: 300px;
 
   &:disabled {
     background-color: #85AAFF;
