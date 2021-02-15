@@ -3,70 +3,14 @@ import {useHttp} from '../hooks/http.hook';
 import {useMessage} from '../hooks/message.hook';
 import {AuthContext} from '../context/auth.context';
 import {useFormFields} from '../hooks/useFormFields';
-import styled from 'styled-components';
 import {emailValidation, passwordValidation} from '../utils/validationRules';
-
-
-const Card = styled.div`
-  box-sizing: border-box;
-  max-width: 450px;
-  margin: 65px auto 0;
-  background-color: #2A2C35;
-  border-radius: 12px;
-  padding: 20px 40px;
-`;
-const CardHeader = styled.h1`
-  font-size: 36px;
-  text-align: center;
-  color: #CFD2E3;
-`;
-
-const Row = styled.div`
-  margin: 15px 0`;
-
-const Label = styled.label`
-  display: block;
-  font-size: 14px;
-  color: #CFD2E3;
-  margin-bottom: 5px
-`;
-const Input = styled.input`
-  background-color: #1E1F27;
-  height: 40px;
-  width: 300px;
-  color: #CFD2E3;
-  border: 1px solid #1E1F27;
-
-  &:-webkit-autofill,
-  &:-webkit-autofill:hover,
-  &:-webkit-autofill:focus {
-    -webkit-box-shadow: 0 0 0 30px #1E1F27 inset !important;
-    -webkit-text-fill-color: #CFD2E3;
-  }
-`;
-
-const Error = styled.span`
-  display: block;
-  color: #FF7549
-`;
-
-const Button = styled.button`
-  background-color: #855AFF;
-  border-radius: 4px;
-  font-weight: 600;
-  text-align: center;
-  font-size: 14px;
-  color: #FFF;
-  border: 0;
-  height: 40px;
-  width: 300px;
-  &:disabled {
-    background-color: #85AAFF;
-  }
-  &:hover {
-    cursor: pointer;
-  }
-`;
+import {Card} from '../components/Card';
+import {CardHeader} from '../components/CardHeader';
+import {Row} from '../components/Row';
+import {Label} from '../components/Label';
+import {Input} from '../components/Input';
+import {Error} from '../components/Error';
+import {Button} from '../components/Button';
 
 export const validate = {
     email: emailValidation,
