@@ -4,6 +4,7 @@ import 'materialize-css';
 import {useRoutes} from './routes';
 import {useAuth} from './hooks/auth.hook';
 import {AuthContext} from './context/auth.context';
+import jwt_decode from 'jwt-decode'
 
 function App() {
     const {
@@ -11,6 +12,7 @@ function App() {
         login,
         logout,
         userId,
+        expiresIn
     } = useAuth();
     const isAuthenticated = !!token;
     const routes = useRoutes(isAuthenticated);
@@ -20,7 +22,8 @@ function App() {
             login,
             logout,
             userId,
-            isAuthenticated
+            isAuthenticated,
+            expiresIn
         }}>
             <BrowserRouter>
                 <div className="container">

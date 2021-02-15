@@ -94,7 +94,7 @@ router.post('/login', [check('email', 'Введите корректный email
                     .json({message: 'Неверный пароль, попробуйте снова'});
             }
 
-            const token = jwt.sign({userId: user.id}, config.get('jwtSecret'), {expiresIn: '1h'});
+            const token = jwt.sign({userId: user.id}, config.get('jwtSecret'), {expiresIn: '1m'});
 
             res.json({
                 token,

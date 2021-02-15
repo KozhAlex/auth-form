@@ -1,20 +1,27 @@
 import {useCallback, useEffect, useState} from 'react';
+import jwt_decode from 'jwt-decode';
 
 const storageName = 'userData';
 
 export const useAuth = () => {
     const [token, setToken] = useState(null);
     const [userId, setUserId] = useState(null);
+    const [expiresIn, setExpiresIn] = useState(null);
 
     const login = useCallback((jwtToken, id) => {
         setToken(jwtToken);
         setUserId(id);
+
+        const {exp} = jwt_decode(jwtToken);
+        console.log(exp)
+        setExpiresIn(exp);
 
         localStorage.setItem(storageName, JSON.stringify({
             userId: id,
             token: jwtToken
         }));
     }, []);
+
     const logout = useCallback(() => {
         setToken(null);
         setUserId(null);
@@ -33,6 +40,7 @@ export const useAuth = () => {
         login,
         logout,
         token,
-        userId
+        userId,
+        expiresIn
     };
 };

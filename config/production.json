@@ -1,5 +1,0 @@
-{
-  "port": 5000,
-  "mongoUri": "mongodb+srv://aleksei_kozhevnikov:<password>@cluster0.rqpkh.mongodb.net/app?retryWrites=true&w=majority",
-  "jwtSecret": "auth form react nodeJS"
-}

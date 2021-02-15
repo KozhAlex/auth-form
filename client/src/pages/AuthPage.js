@@ -23,6 +23,7 @@ const CardHeader = styled.h1`
 
 const Row = styled.div`
   margin: 15px 0`;
+
 const Label = styled.label`
   display: block;
   font-size: 14px;
@@ -122,63 +123,9 @@ export const AuthPage = () => {
         }
     };
 
-    // return (
-    //     <div className="row">
-    //         <div className="col s6 offset-s3">
-    //             <h1>Auth Form</h1>
-    //             <div className="card blue darken-1">
-    //                 <div className="card-content white-text">
-    //                     <span className="card-title">Авторизация</span>
-    //                     <div>
-    //                         <div className="input-field">
-    //                             <input
-    //                                 placeholder="Введите email"
-    //                                 id="email"
-    //                                 type="text"
-    //                                 name="email"
-    //                                 className="yellow-input"
-    //                                 onChange={changeHandler}
-    //                             />
-    //                             <label htmlFor="email">Email</label>
-    //                         </div>
-    //
-    //                         <div className="input-field">
-    //                             <input
-    //                                 placeholder="Введите пароль"
-    //                                 id="password"
-    //                                 type="password"
-    //                                 name="password"
-    //                                 className="yellow-input"
-    //                                 onChange={changeHandler}
-    //                             />
-    //                             <label htmlFor="password">Пароль</label>
-    //                         </div>
-    //                     </div>
-    //                 </div>
-    //                 <div className="card-action">
-    //                     <button
-    //                         className="btn yellow darken-4"
-    //                         style={{marginRight: 10}}
-    //                         disabled={loading}
-    //                         onClick={loginHandler}
-    //                     >
-    //                         Войти
-    //                     </button>
-    //                     <button
-    //                         className="btn grey lighten-1 black-text"
-    //                         onClick={registerHandler}
-    //                         disabled={loading}
-    //                     >
-    //                         Регистрация
-    //                     </button>
-    //                 </div>
-    //             </div>
-    //         </div>
-    //     </div>
-    // );
     return (
         <Card>
-            <CardHeader>Регистрация</CardHeader>
+            <CardHeader>Авторизация</CardHeader>
             <form onSubmit={handleSubmit}>
                 <Row>
                     <Label htmlFor='email'>Email</Label>
